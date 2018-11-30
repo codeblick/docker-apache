@@ -1,1 +1,0 @@
-45 23 * * * certbot renew -n --webroot --webroot-path /var/www/html --post-hook "apachectl -k restart" >>/var/log/cron.log 2>&1
