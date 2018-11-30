@@ -10,9 +10,10 @@ ENV LE_MAIL=mail@example.com
 COPY --chown=www-data httpd-vhosts.conf /usr/local/apache2/conf/extra/
 COPY --chown=www-data httpd.conf /usr/local/apache2/conf/
 COPY init-container.sh /usr/local/bin/
+COPY le-cron /etc/cron.d/
 
 RUN apt-get update -qq && \
-    apt-get install -y -qq python-certbot-apache
+    apt-get install -y -qq python-certbot-apache cron
 
 VOLUME /etc/letsencrypt/certs
 
